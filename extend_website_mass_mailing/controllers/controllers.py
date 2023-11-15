@@ -13,8 +13,6 @@ class ExtendWebsiteMassMailingApi(http.Controller):
         ContactSubscription = request.env['mailing.contact.subscription'].sudo()
         Contacts = request.env['mailing.contact'].sudo()
 
-        name = name or value
-
         subscription = ContactSubscription.search(
             [('list_id', '=', int(list_id)), (f'contact_id.email', '=', value)], limit=1)
 
