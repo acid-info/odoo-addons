@@ -3,7 +3,7 @@ from odoo.http import route, request
 from odoo.addons.mass_mailing.controllers import main
 
 class ExtendWebsiteMassMailingApi(http.Controller):
-    @route('/website_mass_mailing/subscribe2', type='json', website=True, auth='public')
+    @route('/website_mass_mailing/subscribe2', type='json', website=True, auth='public', methods=["POST"], cors='*')
     def subscribe2(self, list_id, name, value, **post):
         if not request.env['ir.http']._verify_request_recaptcha_token('website_mass_mailing_subscribe'):
             return {
